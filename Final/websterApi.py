@@ -4,11 +4,12 @@ import requests
 
 class WebsterWord:
         
-    def __init__(self, word, id, response=None, json=None):
+    def __init__(self, word, id=None, response=None, json=None):
         self.word = word
-        self.id = id
-        self.response = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/{}?key={}'.format(word, id))
+        self.id = '17e1bacd-ab8e-4924-8c57-5a32357d29d9'
+        self.response = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/{}?key={}'.format(word, self.id))
         self.json = (self.response).json()
+        print("good")
         self.wordList = self.json[0]
         self.shortdef = self.wordList['shortdef']
   
