@@ -9,9 +9,13 @@ class WebsterWord:
         self.id = '17e1bacd-ab8e-4924-8c57-5a32357d29d9'
         self.response = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/{}?key={}'.format(word, self.id))
         self.json = (self.response).json()
-        print("good")
-        self.wordList = self.json[0]
-        self.shortdef = self.wordList['shortdef']
+        if isinstance(self.json[0], str):
+            pass
+        else:
+            self.wordDic = self.json[0]
+            self.shortdef = self.wordDic['shortdef']
+            self.hwi = self.wordDic['hwi']
+            self.prsMw = self.hwi['prs'][0]['mw']
   
         
 
@@ -28,3 +32,10 @@ class WebsterWord:
 # uros = wordDic['uros']
 # et = wordDic['et']
 
+
+
+
+request = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/enstasis?key=17e1bacd-ab8e-4924-8c57-5a32357d29d9')
+
+request2 = WebsterWord('voluminous')
+request3 = WebsterWord('enstasis')
