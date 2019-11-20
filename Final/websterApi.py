@@ -10,8 +10,10 @@ class WebsterWord:
         self.response = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/{}?key={}'.format(word, self.id))
         self.json = (self.response).json()
         if isinstance(self.json[0], str):
+            self.found = False
             pass
         else:
+            self.found = True
             self.wordDic = self.json[0]
             self.shortdef = self.wordDic['shortdef']
             self.hwi = self.wordDic['hwi']
@@ -19,7 +21,7 @@ class WebsterWord:
   
         
 
-
+#/// section for reference
 # request = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/voluminous?key=17e1bacd-ab8e-4924-8c57-5a32357d29d9')
 
 # wordList = request.json()
@@ -31,11 +33,6 @@ class WebsterWord:
 # fl = wordDic['fl']
 # uros = wordDic['uros']
 # et = wordDic['et']
+#///
 
 
-
-
-request = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/enstasis?key=17e1bacd-ab8e-4924-8c57-5a32357d29d9')
-
-request2 = WebsterWord('voluminous')
-request3 = WebsterWord('enstasis')
