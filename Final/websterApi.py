@@ -12,6 +12,10 @@ class WebsterWord:
         if isinstance(self.json[0], str):
             self.found = False
             pass
+        elif self.word != self.json[0]['hwi']['hw'].replace('*', ''):
+            print("Word is not stem")
+            self.found = False
+            pass
         else:
             self.found = True
             self.wordDic = self.json[0]
