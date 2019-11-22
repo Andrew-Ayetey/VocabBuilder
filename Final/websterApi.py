@@ -13,7 +13,7 @@ class WebsterWord:
             self.found = False
             pass
         elif self.word != self.json[0]['hwi']['hw'].replace('*', ''):
-            print("Word is not stem")
+            print(""+ word + " is not stem")
             self.found = True
             self.word = self.json[0]['hwi']['hw'].replace('*', '')
             self.id = '17e1bacd-ab8e-4924-8c57-5a32357d29d9'
@@ -30,7 +30,12 @@ class WebsterWord:
             self.shortdef = self.wordDic['shortdef']
             self.hwi = self.wordDic['hwi']
             self.prsMw = self.hwi['prs'][0]['mw']
-  
+
+class ProblemWord:
+    def __init__(self, word):
+        self.word = word
+        self.found = False
+    pass
         
 
 #/// section for reference
