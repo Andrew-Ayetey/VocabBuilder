@@ -1,12 +1,19 @@
 import json
 import requests
 
+IDPage = open(r"WebsterID.txt", 'r')
+
+IDStr = str(IDPage.readline())
+
+myWebID = IDStr
+# myWebID = '17e1bacd-ab8e-4924-8c57-5a32357d29d9'
+
 
 class WebsterWord:
         
     def __init__(self, word, id=None, response=None, json=None):
         self.word = word
-        self.id = '17e1bacd-ab8e-4924-8c57-5a32357d29d9'
+        self.id = myWebID
         self.response = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/{}?key={}'.format(word, self.id))
         self.json = (self.response).json()
         if isinstance(self.json[0], str):
@@ -16,10 +23,11 @@ class WebsterWord:
             print(""+ word + " is not stem")
             self.found = True
             self.word = self.json[0]['hwi']['hw'].replace('*', '')
-            self.id = '17e1bacd-ab8e-4924-8c57-5a32357d29d9'
+            self.id = myWebID
             self.response = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/{}?key={}'.format(self.word, self.id))
             self.json = (self.response).json()
             self.wordDic = self.json[0]
+            self.wordDef = str(self.wordDic['def'])
             self.shortdef = self.wordDic['shortdef']
             self.hwi = self.wordDic['hwi']
             self.prsMw = self.hwi['prs'][0]['mw']
@@ -28,6 +36,7 @@ class WebsterWord:
             self.found = True
             self.wordDic = self.json[0]
             self.shortdef = self.wordDic['shortdef']
+            self.wordDef = str(self.wordDic['def'])
             self.hwi = self.wordDic['hwi']
             self.prsMw = self.hwi['prs'][0]['mw']
 
