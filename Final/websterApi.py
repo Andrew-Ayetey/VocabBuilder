@@ -6,7 +6,7 @@ IDPage = open(r"WebsterID.txt", 'r')
 IDStr = str(IDPage.readline())
 
 myWebID = IDStr
-# myWebID = '17e1bacd-ab8e-4924-8c57-5a32357d29d9'
+
 
 
 class WebsterWord:

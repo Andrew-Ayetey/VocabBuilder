@@ -31,7 +31,7 @@ def paste_defintion(cell):
     else:
         definitionLocation = "B" + str(cell.row)
         vocabWorksheet[definitionLocation] = defined.shortdef[0]
-        workbook.save('test.xlsx')
+        workbook.save(vocabFile)
         print("Definition of "+ word +" updated")
     pass
 
@@ -44,7 +44,7 @@ def paste_defintion_long(cell):
     else:
         definitionLocation = "D" + str(cell.row)
         vocabWorksheet[definitionLocation] = str(defined.wordDef)
-        workbook.save('test.xlsx')
+        workbook.save(vocabFile)
         print("Long Definition of "+ word +" updated")
     pass
 
@@ -57,7 +57,7 @@ def paste_pronunciation(cell):
     else:
         prsLocation = "C" + str(cell.row)
         vocabWorksheet[prsLocation] = prs.prsMw
-        workbook.save('test.xlsx')
+        workbook.save(vocabFile)
         print("Pronunciation of "+ word +" updated.")
     pass
 
@@ -68,9 +68,11 @@ def paste_quizlet(cell):
         print(""+ word +" not found in Webster")
         pass
     else:
-        quizletLocation = "E" + str(cell.row)
-        vocabWorksheet[quizletLocation] = "{} ({})".format(quizlet.word, quizlet.prsMw)
-        workbook.save('test.xlsx')
+        quizletWordLocation = "G" + str(cell.row)
+        quizletDefLocation = "H" + str(cell.row) 
+        vocabWorksheet[quizletWordLocation] = "{} ({})".format(quizlet.word, quizlet.prsMw)
+        vocabWorksheet[quizletDefLocation] = quizlet.shortdef[0]
+        workbook.save(vocabFile)
         print("Quizlet of "+ word +" updated.")
     pass
 
@@ -107,7 +109,7 @@ def addDefinitionLong():
 
 def quizletFlashCardWord():
     for x in wordColumn:
-        wordLocation = "E" + str(x.row)
+        wordLocation = "G" + str(x.row)
         if x.value == "Word":
             pass
         elif vocabWorksheet[wordLocation].value != None:
