@@ -15,7 +15,7 @@ class WebsterWord:
         
 
 
-# request = requests.get('https://www.dictionaryapi.com/api/v3/references/collegiate/json/voluminous?key=17e1bacd-ab8e-4924-8c57-5a32357d29d9')
+
 
 # wordList = request.json()
 # wordDic = wordList[0]
@@ -27,8 +27,3 @@ class WebsterWord:
 # uros = wordDic['uros']
 # et = wordDic['et']
 
-testpizza = WebsterWord("pizza", '17e1bacd-ab8e-4924-8c57-5a32357d29d9')
-
-print(testpizza)
-print(testpizza.shortdef)
-# print(testpizza.callWebsterAPI('17e1bacd-ab8e-4924-8c57-5a32357d29d9', 'pizza'))
