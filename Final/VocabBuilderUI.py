@@ -66,6 +66,8 @@ def paste_quizlet(cell):
     quizlet = define_word(word)
     if quizlet.found == False:
         print(""+ word +" not found in Webster")
+        quizletWordLocation = "G" + str(cell.row)
+        vocabWorksheet[quizletWordLocation] = "{}".format(quizlet.word)
         pass
     else:
         quizletWordLocation = "G" + str(cell.row)
