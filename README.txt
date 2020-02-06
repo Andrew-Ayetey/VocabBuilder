@@ -2,6 +2,10 @@ This program allows you to enter English vocabulary words in a spreadsheet, and 
 
 You will need to register with Webster's basic API (free) and receive an API ID.
 
+Register here: https://www.dictionaryapi.com/register/index
+Dictionary API info: https://www.dictionaryapi.com/products/api-collegiate-dictionary
+Log in and get your API keys here: https://www.dictionaryapi.com/account/my-keys
+
 
 Step 1: Open a terminal window, and navigate to the Final Directory.
 Step 2: Be sure to have a key entered in the first line of WebsterID.txt
